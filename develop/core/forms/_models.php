@@ -38,10 +38,6 @@
 			
 		</div>
 
-		<p>Use Database <br>
-		Yes <input type="radio" name="usedb" value="true"><br>
-		No <input type="radio" name="usedb" value="false" checked><br>
-
 
 		<div id='requires'>
 			<label>Use model</label><br>

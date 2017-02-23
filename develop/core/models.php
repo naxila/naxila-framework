@@ -40,9 +40,6 @@ class models {
 
 			$code = "<?php";
 
-			if ($_POST['usedb'] == 'true') {
-				$code.="\nrequire_once('app/core/DB.php');";
-			}
 
 			foreach ($requires as $r) {
 				if ($r!='') $code.="\nrequire_once('".$dir.$r.".php');";
@@ -58,6 +55,35 @@ class models {
 				}
 			}
 
+			if (isset($_POST['table_check'])) {
+				require_once('database.php');
+				database::createTable($_POST);
+
+				$name = $_POST['name'];
+				$cname = $_POST['cname'];
+				$ctype = $_POST['ctype'];
+				$clength = $_POST['clength'];
+				$cdefault = $_POST['cdefault'];
+				$crule = $_POST['crule'];
+
+				for ($i=0; $i<count($cname); $i++) {
+					if ($cname[$i]!='') {
+						if ($crule[$i]=='UNIQUE' OR $crule='PRIMARY KEY') {
+							$crule[$i] = true;
+						}
+						else {
+							$crule[$i] = false;
+						}
+
+						$code.="\n\n".$tab."public static function findBy".ucfirst(strtolower($cname[$i]))."($"."query) {";
+						$code.="\n".$tabs."return findBy('$name', '$cname[$i]', $"."query, '$crule[$i]');";
+						$code.="\n".$tab."}";
+					}
+
+				}
+
+			}
+
 			$code .= "\n\n}";
 
 			fwrite($file, $code);
@@ -65,10 +91,7 @@ class models {
 
 			echo "<div class='fwrk_content-message'>Model Created!</div>";
 
-			if (isset($_POST['table_check'])) {
-				require_once('database.php');
-				database::createTable($_POST);
-			}
+			
 		}
 
 		else {
