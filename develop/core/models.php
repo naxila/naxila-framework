@@ -64,6 +64,11 @@ class models {
 			fclose($file);
 
 			echo "<div class='fwrk_content-message'>Model Created!</div>";
+
+			if (isset($_POST['table_check'])) {
+				require_once('database.php');
+				database::createTable($_POST);
+			}
 		}
 
 		else {

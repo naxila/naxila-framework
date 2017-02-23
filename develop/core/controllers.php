@@ -51,7 +51,7 @@ class controllers {
 
 			for ($i=0; $i<count($action); $i++) {
 				if ($action[$i]!='') {
-					$code.="\n\n".$tab."public function ".$action[$i]."(".$f_args[$i].") {";
+					$code.="\n\n".$tab."public static function ".$action[$i]."(".$f_args[$i].") {";
 					$code.="\n".$tabs."#Your code";
 					$code.="\n".$tab."}";
 				}
