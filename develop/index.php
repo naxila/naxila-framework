@@ -78,7 +78,7 @@ include('core/ini.php');
 			<div class="fwrk-footer-links">
 			<a href="?select=about">About</a> 
 			<a href="?select=contacts">Contacts</a> 
-			<a href="">GitHub</a><br>
+			<a href="https://github.com/naxila/naxila-framework">GitHub</a><br>
 			v. <?= $manifest['version'] ?>
 			</div>
 		</div>
