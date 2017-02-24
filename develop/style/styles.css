@@ -23,8 +23,9 @@ body a {
 
 .content {
 	width: 30%;
+	min-width: 600px;
 	text-align: left;
-	margin-left: 35%;
+	margin-left: 30%;
 }
 
 .fwrk_topbar {

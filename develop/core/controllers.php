@@ -31,7 +31,7 @@ class controllers {
 			$requires = $_POST['requires'];
 
 
-			$dir = $controllers_path;
+			$dir = "../".$controllers_path;
 			$file = fopen($dir.$title."_c.php", "w");
 
 			$tab = "	";
@@ -44,14 +44,14 @@ class controllers {
 			}
 
 			foreach ($requires as $r) {
-				if ($r!='') $code.="\nrequire_once('".$dir.$r.".php');";
+				if ($r!='') $code.="\nrequire_once('".$models_path.$r.".php');";
 			}
 
 			$code .= "\n\nclass ".$title."_c extends Controller {";
 
 			for ($i=0; $i<count($action); $i++) {
 				if ($action[$i]!='') {
-					$code.="\n\n".$tab."public static function ".$action[$i]."(".$f_args[$i].") {";
+					$code.="\n\n".$tab."public function ".$action[$i]."(".$f_args[$i].") {";
 					$code.="\n".$tabs."#Your code";
 					$code.="\n".$tab."}";
 				}
