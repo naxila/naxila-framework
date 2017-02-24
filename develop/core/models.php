@@ -32,7 +32,7 @@ class models {
 			$f_args = $_POST['f_args'];
 			$f_static = $_POST['f_static'];
 
-			$dir = $models_path;
+			$dir = "../".$models_path;
 			$file = fopen($dir.$title.".php", "w");
 
 			$tab = "	";
@@ -42,7 +42,7 @@ class models {
 
 
 			foreach ($requires as $r) {
-				if ($r!='') $code.="\nrequire_once('".$dir.$r.".php');";
+				if ($r!='') $code.="\nrequire_once('".$models_path.$r.".php');";
 			}
 
 			$code .= "\n\nclass ".$title." extends Model {";

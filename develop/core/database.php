@@ -25,7 +25,12 @@ class database {
 						$clength[$i] = "(".$clength[$i].")";
 					}
 					if ($cdefault[$i] != "") {
-						$cdefault[$i] = "DEFAULT '".$cdefault[$i]."'";
+						if ($ctype[$i]=='TIMESTAMP'){
+							$cdefault[$i] = "DEFAULT ".$cdefault[$i];
+						}
+						else {
+							$cdefault[$i] = "DEFAULT '".$cdefault[$i]."'";
+						}
 					}
 
 					if ($i==0) {
@@ -39,7 +44,7 @@ class database {
 
 			$query.=")";
 			DB::query($query);
-			//echo $query;
+			echo $query;
 			echo "<div class='fwrk_content-message'>Table created!</div>";
 		}
 	}
