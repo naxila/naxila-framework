@@ -3,7 +3,7 @@
 
 <h3> How to use </h3>
 To start use Naxfram:
-- unpack files in parent directory;
+- unpack files in root directory of web app;
 - configurate your database at <b>app/core/db.ini</b>:
 
 HOST = '[Your host]'<br>
