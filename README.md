@@ -2,10 +2,10 @@
 <b>Naxila</b> - it's a PHP framework. 
 
 <h3> How to use </h3>
-To start use Naxfram:
-- unpack files in root directory of web app;
+Quick start:<br>
+- unpack files to the root directory of web app;
 - configurate your database at <b>app/core/db.ini</b>:
-
+<br>
 HOST = '[Your host]'<br>
 USER = '[Username]'<br>
 PASSWORD = '[Password]'<br>
